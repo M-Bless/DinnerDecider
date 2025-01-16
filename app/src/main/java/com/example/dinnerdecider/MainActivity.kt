@@ -1,6 +1,7 @@
 package com.example.dinnerdecider
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,31 +16,12 @@ import com.example.dinnerdecider.ui.theme.DinnerDeciderTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            DinnerDeciderTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
-        }
-    }
-}
+        setContentView(R.layout.activity_main)
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+        // Find the TextView by its ID
+        val selectedFoodTxt = findViewById<TextView>(R.id.selectedFoodTxt)
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    DinnerDeciderTheme {
-        Greeting("Android")
+        // Set the text
+        selectedFoodTxt.text = "Burger King"
     }
 }
