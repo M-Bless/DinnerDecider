@@ -2,6 +2,7 @@ package com.example.dinnerdecider
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -31,6 +32,15 @@ class MainActivity : ComponentActivity() {
             // Find the TextView by its ID
             val selectedFoodTxt = findViewById<TextView>(R.id.selectedFoodTxt)
             selectedFoodTxt.text=foodList[randomFood]
+        }
+
+        val addFoodBtn=findViewById<Button>(R.id.addFoodBtn)
+        val addFoodTxt=findViewById<EditText>(R.id.addFoodTxt)
+        addFoodBtn.setOnClickListener{
+            val newFood=addFoodTxt.text.toString()
+            foodList.add(newFood)
+            addFoodTxt.text.clear()
+            println(foodList)
         }
     }
 }
